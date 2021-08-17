@@ -1,0 +1,28 @@
+{​
+    //"prettier.eslintIntegration": true,
+    // let editor format using prettier for all other files
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    // disable editor formatting, so eslint can handle it
+    "[javascript]": {​
+      "editor.formatOnSave": false
+    }​,
+    "[javascriptreact]": {​
+      "editor.formatOnSave": false
+    }​,
+    // show eslint icon at bottom toolbar
+    "eslint.alwaysShowStatus": true,
+    // tell the ESLint plugin to run on save
+    "editor.codeActionsOnSave": {​
+      "source.fixAll.eslint": true
+    }​,
+    //// Optional BUT IMPORTANT: If you have the prettier extension enabled for other languages like CSS and HTML, turn it off for JS since we are doing it through Eslint already
+    //"prettier.disableLanguages": ["javascript", "javascriptreact"],
+    "files.exclude": {​
+      "**/.git": false,
+      "**/*.DS_Store": true,
+      "**/*.expo": true,
+      "**/*.git": true,
+      "node_modules/": true
+    }​
+  }​
