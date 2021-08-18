@@ -32,10 +32,7 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
+        "extensions": [".js", ".jsx"]
       }
     ],
     "prettier/prettier": [
@@ -73,20 +70,9 @@
     "no-console": [
       "warn",
       {
-        "allow": [
-          "warn",
-          "error",
-          "log",
-          "info",
-          "disableYellowBox"
-        ]
+        "allow": ["warn", "error", "log", "info", "disableYellowBox"]
       }
     ]
   },
-  "plugins": [
-    "react",
-    "react-native",
-    "prettier",
-    "react-hooks"
-  ]
+  "plugins": ["react", "react-native", "prettier", "react-hooks"]
 }
