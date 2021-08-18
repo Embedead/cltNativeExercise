@@ -23,6 +23,7 @@ import {WebViewComp} from "./components/webView"
 import {createNativeStackNavigator} from "@react-navigation/native-stack"
 import { createDrawerNavigator } from '@react-navigation/drawer'; 
 import { ListView } from './components/list';
+import { ListComp } from './components/list/List';
 
 const App = () => {
   const Drawer = createDrawerNavigator();
@@ -35,7 +36,7 @@ const App = () => {
       <Drawer.Screen name="Home" component={Hello}/>
       <Drawer.Screen name="Welcome" component={Welcome}/>
       <Drawer.Screen name="Webview" component={WebViewComp}/>
-      <Drawer.Screen name="Flatlist" component={ListView}/>
+      <Drawer.Screen name="Flatlist" component={ListComp}/>
       </Drawer.Navigator>
     </NavigationContainer>
   )
