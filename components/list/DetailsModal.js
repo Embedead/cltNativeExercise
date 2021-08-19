@@ -1,8 +1,13 @@
 import React from "react"
 import {View,Modal,Text,Pressable,StyleSheet} from "react-native"
 
-export const DetailsModal = ({open,children}) => {
+export const DetailsModal = ({open,onClose,children}) => {
   const [modalVisible,setModalVisible] = React.useState(false);
+
+  const closeAction = () =>{
+    onClose();
+    setModalVisible(!modalVisible)
+  }
 
   React.useEffect(()=>{
     if(open){
@@ -10,11 +15,11 @@ export const DetailsModal = ({open,children}) => {
     }
   },[open])
   return(
-    <Modal animationType="slide" transparent={true} visible={modalVisible} onRequestClose={()=>setModalVisible(!modalVisible)}>
+    <Modal animationType="slide" transparent={true} visible={modalVisible} onRequestClose={closeAction}>
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
           {children}
-          <Pressable style={[styles.button,styles.buttonClose]} onPress={()=>setModalVisible(!modalVisible)}>
+          <Pressable style={[styles.button,styles.buttonClose]} onPress={closeAction}>
             <Text style={styles.textStyle}>Close</Text>
           </Pressable>
         </View>
@@ -26,17 +31,18 @@ export const DetailsModal = ({open,children}) => {
 
 const styles = StyleSheet.create({
   centeredView: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22
+    display:"flex",
+    height:"100%",
+    flexDirection:"row",
+    justifyContent:"center",
+    alignItems:"flex-end",
+    padding:16,
   },
   modalView: {
-    margin: 20,
+    width:"100%",
     backgroundColor: "white",
-    borderRadius: 20,
-    padding: 35,
-    alignItems: "center",
+    borderRadius: 5,
+    padding: 5,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -47,8 +53,8 @@ const styles = StyleSheet.create({
     elevation: 5
   },
   button: {
-    borderRadius: 20,
-    padding: 10,
+    borderRadius: 5,
+    padding: 7,
     elevation: 2
   },
   buttonOpen: {

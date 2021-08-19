@@ -17,19 +17,20 @@ export const Item = ({item})=>{
       </View>
       <Text style={styles.title}>{item.name}</Text>
       </Pressable>
-      <DetailsModal open={open}>
+      <DetailsModal open={open} onClose={()=>setOpen(!open)}>
+        <Text>Country name: {item.name}</Text>
+        <Text>Capital: {item.capital}</Text>
+        <Text>Region: {item.region}</Text>
+        <Text>Currencies</Text>
         {item.currencies.map((currency,index)=>{
           return(
             <View key={index}>
-
-            <Text>{currency.code}</Text>
-            <Text>{currency.name}</Text>
-            <Text>{currency.symbol}</Text>
+            <Text>name: {currency.name}</Text>
+            <Text>code: {currency.code}</Text>
+            <Text>symbol: {currency.symbol}</Text>
             </View>
           )
         })}
-        <Text>{item.capital}</Text>
-        <Text>{item.region}</Text>
       </DetailsModal>
     </Animatable.View>
   )

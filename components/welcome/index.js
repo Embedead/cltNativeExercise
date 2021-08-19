@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, View, TextInput,StyleSheet, Button} from 'react-native';
 
 export const Welcome = ({route,navigation}) => {
-  const {name} = route.params;
+  const {name} = route.params || "default";
   return(
     <View style={styles.view}>
       <Text style={styles.label}>Welcome {name || "default"}</Text>
