@@ -1,13 +1,16 @@
 import React from 'react';
 import {Text, View, TextInput,StyleSheet,Button} from 'react-native';
+import * as Animatable from "react-native-animatable";
 
 const Hello = ({navigation}) => {
+  AnimatedTextInput = Animatable.createAnimatableComponent(TextInput);
+  AnimatedButton = Animatable.createAnimatableComponent(Button);
   const [text,onChangeText] = React.useState("");
   return (
     <View style={styles.view}>
-      <Text style={styles.label}>Hello Human</Text>
-      <TextInput style={styles.input} value={text} placeholder="enter name" onChangeText={onChangeText}/>
-      <Button style={styles.button} disabled={text ===""} title="next" onPress={()=>navigation.navigate('Welcome',{name:text})}/>
+      <Animatable.Text animation="fadeInUp" style={styles.label}>Hello Human</Animatable.Text>
+      <AnimatedTextInput animation="fadeInUpBig" style={styles.input} value={text} placeholder="enter name" onChangeText={onChangeText}/>
+      <AnimatedButton animate="fadeInLeft" style={styles.button} disabled={text ===""} title="next" onPress={()=>navigation.navigate('Welcome',{name:text})}/>
     </View>
   );
 };

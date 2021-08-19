@@ -14,7 +14,6 @@ export const ListComp = () => {
       .then(jsonResult=>{setData(jsonResult)
          })
       .catch(err=>console.log("network error is", err))
-      console.log("ineffect")
   },[])
   const renderItem = ({item})=> <Item item={item}/>;
   return(
